@@ -1,3 +1,33 @@
+/* GLOBAL */
 * {
     font-family: sans-serif;
+}
+
+body {
+    margin: 0;
+}
+
+main,
+footer {
+    padding: 0 2%;
+}
+
+/* NAVBAR */
+nav {
+    display: flex;
+    column-gap: 10px;
+    background-color: rgb(35, 35, 35);
+    position: sticky;
+    top: 0;
+}
+
+nav a {
+    color: white;
+    padding: 10px;
+    text-decoration: none;
+    text-align: center;
+}
+
+nav a:nth-child(4) {
+    margin-left: auto;
 }
