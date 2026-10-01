@@ -64,5 +64,28 @@ footer a:hover {
 
 .registration div {
     width: 20em;
-    height: 12em;
+    height: 15em;
+}
+
+.registration button {
+    width: 35%;
+    padding: 12px;
+    margin-top: 10px;
+    border: 1px solid #000;
+    background-color: #f1f1f1;
+    cursor: pointer;
+    margin-left: 73%;
+}
+
+.registration p {
+    text-align: center;
+}
+
+input[type=text],
+input[type=password] {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 10px;
+    border: 1px solid #000;
+    background-color: #f1f1f1;
 }
