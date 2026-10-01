@@ -1,21 +1,34 @@
-/* --- GLOBAL --- */
+/* ==== GLOBAL ==== */
 * {
-    font-family: sans-serif;
+    font-family: HYWenHei;
+}
+
+html {
+    width: 100%;
 }
 
 body {
     margin: 0;
 }
 
-main {
-    padding: 0 2%;
-}
-
 a {
     text-decoration: none;
 }
 
-/* --- NAVBAR --- */
+/* ==== SHARED PROPERTIES ==== */
+.flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.gray-btn {
+    border: 1px solid #000;
+    background-color: #f1f1f1;
+    cursor: pointer;
+}
+
+/* ==== NAVBAR ==== */
 nav {
     display: flex;
     column-gap: 10px;
@@ -34,7 +47,7 @@ nav a:nth-child(4) {
     margin-left: auto;
 }
 
-/* --- FOOTER --- */
+/* ==== FOOTER ==== */
 footer {
     display: grid;
     grid-template-columns: repeat(3, auto);
@@ -54,27 +67,16 @@ footer a:hover {
     text-decoration: underline;
 }
 
-/* --- LOGIN / SIGNUP --- */
+/* ==== LOGIN / SIGNUP ==== */
 .registration {
-    min-height: 80vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.registration div {
-    width: 20em;
-    height: 15em;
+    height: 95vh;
 }
 
 .registration button {
-    width: 35%;
+    width: 40%;
     padding: 12px;
     margin-top: 10px;
-    border: 1px solid #000;
-    background-color: #f1f1f1;
-    cursor: pointer;
-    margin-left: 73%;
+    margin-left: 69%;
 }
 
 .registration p {
@@ -88,4 +90,40 @@ input[type=password] {
     margin-bottom: 10px;
     border: 1px solid #000;
     background-color: #f1f1f1;
+}
+
+/* ==== HOME PAGE ==== */
+
+/* ---- HERO ---- */
+.hero {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+}
+
+.hero img,
+.hero div {
+    width: 50vw;
+    height: 60vh;
+}
+
+.hero div {
+    flex-direction: column;
+}
+
+.hero h1 {
+    margin-bottom: 0;
+}
+
+.hero button {
+    padding: 12px;
+}
+
+/* ---- HOW TO PLAY ---- */
+.howToPlay {
+    height: 80vh;
+}
+
+.howToPlay h1 {
+    text-align: center;
+    margin-top: 10%;
 }
