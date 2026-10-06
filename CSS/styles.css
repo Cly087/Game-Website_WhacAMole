@@ -13,13 +13,11 @@
     --font-display: "Bungee";
     --font-ui: "Press Start 2P";
     --font-body: "Nunito";
-
 }
 
 *,
 ::before,
 ::after {
-    font-family: inherit;
     box-sizing: border-box;
 }
 
@@ -105,11 +103,13 @@ footer {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     margin-top: 5%;
-
+    border-top: var(--border);
+    border-top-color: var(--red);
 }
 
 footer div {
-    background-color: #f1f1f1;
+    background-color: var(--dark-brown);
+    color: var(--cream);
     padding: 10px;
 }
 
@@ -120,9 +120,16 @@ footer ul {
 
 footer b {
     font-size: 1.17em;
+    font-family: var(--font-ui);
+    color: var(--mustard);
+}
+
+footer a {
+    color: var(--mustard);
 }
 
 footer a:hover {
+    color: var(--cream);
     text-decoration: none;
 }
 
