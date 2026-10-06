@@ -1,23 +1,26 @@
 /* ==== GLOBAL ==== */
-@import url('https://fonts.googleapis.com/css2?family=DynaPuff:wght@400..700&family=Press+Start+2P&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Bungee&family=Nunito:wght@600;800&family=Press+Start+2P&display=swap");
 
 :root {
-    --bg-color: #5003C0;
-    --nav-color: #AB03A9;
-    --btn-color: #FF467A;
-    --color1: #06AED5;
-    --color2: #FFD51E;
-    --text-color: #fff;
+    --red: #d62839;
+    --mustard: #f6ae2d;
+    --cream: #fff3d6;
+    --brown: #5b3a29;
+    --dark-brown: #2d1b12;
+    --green: #4caf50;
+    --navy: #1b1b3a;
 
-    --pixel-font: "Press Start 2P";
+    --font-display: "Bungee";
+    --font-ui: "Press Start 2P";
+    --font-body: "Nunito";
+
 }
 
 *,
 ::before,
 ::after {
+    font-family: inherit;
     box-sizing: border-box;
-    font-family: "DynaPuff", "Arial Rounded MT Bold";
-    color: var(--text-color);
 }
 
 html {
@@ -26,7 +29,9 @@ html {
 
 body {
     margin: 0;
-    background-color: var(--bg-color);
+    background-color: var(--navy);
+    color: var(--cream);
+    font-family: var(--font-body);
 }
 
 h1 {
@@ -46,22 +51,27 @@ img {
 }
 
 .btn {
+    border: 3px solid var(--dark-brown);
     border-radius: 12px;
-    background-color: var(--btn-color);
-    box-shadow: 0 4px 8px 0 var(--btn-color);
-    transition: 0.2s;
+    background-color: var(--mustard);
+    color: var(--dark-brown);
+    box-shadow: 4px 4px 0 var(--dark-brown);
+    font-family: var(--font-ui);
+    font-size: 0.75rem;
+    line-height: 1.4;
+    text-align: center;
     cursor: pointer;
-    color: var(--text-color);
+    transition: background-color 0.15s, color 0.15s;
 }
 
 .btn:hover {
-    box-shadow: 0 12px 24px 0 var(--btn-color);
-    transform: translateY(-4px);
+    background-color: var(--red);
+    color: var(--cream);
 }
 
 .btn:active {
-    box-shadow: 0 4px 8px 0 var(--btn-color);
-    transform: translateY(4px);
+    transform: translate(4px, 4px);
+    box-shadow: none;
 }
 
 /* ==== NAVBAR ==== */
@@ -154,7 +164,7 @@ input {
     margin-bottom: 10px;
     border: 1px solid #000;
     background-color: #f1f1f1;
-    color: #000;
+    border: none;
 }
 
 /* ==== HOME PAGE ==== */
@@ -181,7 +191,6 @@ input {
 .hero a {
     padding: 12px;
     text-decoration: none;
-    color: var(--text-color);
 }
 
 /* ---- HOW TO PLAY ---- */
