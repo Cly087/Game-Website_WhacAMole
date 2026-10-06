@@ -1,11 +1,23 @@
 /* ==== GLOBAL ==== */
-@import url('https://fonts.googleapis.com/css2?family=DynaPuff:wght@400..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DynaPuff:wght@400..700&family=Press+Start+2P&display=swap');
+
+:root {
+    --bg-color: #5003C0;
+    --nav-color: #AB03A9;
+    --btn-color: #FF467A;
+    --color1: #06AED5;
+    --color2: #FFD51E;
+    --text-color: #fff;
+
+    --pixel-font: "Press Start 2P";
+}
 
 *,
 ::before,
 ::after {
-    font-family: "DynaPuff", "Arial Rounded MT Bold";
     box-sizing: border-box;
+    font-family: "DynaPuff", "Arial Rounded MT Bold";
+    color: var(--text-color);
 }
 
 html {
@@ -14,6 +26,7 @@ html {
 
 body {
     margin: 0;
+    background-color: var(--bg-color);
 }
 
 h1 {
@@ -32,11 +45,23 @@ img {
     align-items: center;
 }
 
-.gray-btn {
-    border: 1px solid #000;
+.btn {
     border-radius: 12px;
-    background-color: #f1f1f1;
+    background-color: var(--btn-color);
+    box-shadow: 0 4px 8px 0 var(--btn-color);
+    transition: 0.2s;
     cursor: pointer;
+    color: var(--text-color);
+}
+
+.btn:hover {
+    box-shadow: 0 12px 24px 0 var(--btn-color);
+    transform: translateY(-4px);
+}
+
+.btn:active {
+    box-shadow: 0 4px 8px 0 var(--btn-color);
+    transform: translateY(4px);
 }
 
 /* ==== NAVBAR ==== */
@@ -110,6 +135,7 @@ form {
     width: 40%;
     margin: 10px;
     margin-left: auto;
+    border: none;
 }
 
 .registration .h2-style {
@@ -128,6 +154,7 @@ input {
     margin-bottom: 10px;
     border: 1px solid #000;
     background-color: #f1f1f1;
+    color: #000;
 }
 
 /* ==== HOME PAGE ==== */
@@ -154,7 +181,7 @@ input {
 .hero a {
     padding: 12px;
     text-decoration: none;
-    color: #000;
+    color: var(--text-color);
 }
 
 /* ---- HOW TO PLAY ---- */
