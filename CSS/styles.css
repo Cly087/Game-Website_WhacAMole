@@ -15,7 +15,7 @@
     --font-body: "Nunito";
 
     --border: 4px solid var(--dark-brown);
-    --shadow: 6px 6px 0 var(--dark-brown);
+    --shadow: 6px 6px var(--dark-brown);
 }
 
 *,
@@ -38,16 +38,14 @@ body {
 h1,
 h2 {
     font-family: var(--font-display);
-    font-weight: normal;
-    letter-spacing: 0.03em;
 }
 
 h1 {
     text-align: center;
     margin-top: 5%;
-    color: var(--mustard);
+    color: var(--amber);
     font-size: 2.7rem;
-    text-shadow: 3px 3px 0 var(--red);
+    text-shadow: 3px 3px var(--red);
 }
 
 img {
@@ -60,6 +58,7 @@ a {
 
 a:hover {
     color: var(--cream);
+    text-decoration: none;
 }
 
 /* ==== UTILITY CLASSES ==== */
@@ -147,15 +146,6 @@ footer b {
     color: var(--amber);
 }
 
-footer a {
-    color: var(--amber);
-}
-
-footer a:hover {
-    color: var(--cream);
-    text-decoration: none;
-}
-
 /* ==== LOGIN / SIGNUP ==== */
 .registration {
     height: 90vh;
@@ -178,9 +168,12 @@ form {
 }
 
 .registration .h2-style {
+    color: var(--amber);
     font-size: 1.75rem;
-    font-weight: bold;
+    font-family: var(--font-display);
+    text-shadow: 3px 3px var(--red);
     text-align: left;
+    margin: 2%;
 }
 
 .registration p {
@@ -190,10 +183,11 @@ form {
 input {
     width: 100%;
     padding: 15px;
-    margin-bottom: 10px;
-    border: 1px solid #000;
-    background-color: #f1f1f1;
-    border: none;
+    margin: 3px;
+    border: 3px solid var(--dark-brown);
+    border-radius: 8px;
+    background-color: var(--cream);
+    color: var(--dark-brown);
 }
 
 /* ==== HOME PAGE ==== */
