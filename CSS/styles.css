@@ -252,7 +252,7 @@ input {
 }
 
 .card:hover {
-    box-shadow: 6px 6px 0 var(--red);
+    box-shadow: 6px 6px var(--red);
     transform: translate(-2px, -2px);
 }
 
@@ -271,6 +271,17 @@ input {
 
 .imgGrid figure {
     margin: 0;
+}
+
+.imgGrid img {
+    border: 4px solid var(--amber);
+    box-shadow: var(--shadow);
+    transition: 0.2s;
+}
+
+.imgGrid img:hover {
+    box-shadow: 6px 6px var(--red);
+    transform: translate(-2px, -2px);
 }
 
 /* ---- MINI LEADERBOARD ---- */
