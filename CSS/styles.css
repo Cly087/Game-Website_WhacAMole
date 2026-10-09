@@ -14,6 +14,7 @@
     --font-ui: "Press Start 2P", monospace;
     --font-body: "Nunito", sans-serif;
 
+    --light-border: 4px solid var(--amber);
     --border: 4px solid var(--dark-brown);
     --shadow: 6px 6px var(--dark-brown);
 }
@@ -36,13 +37,14 @@ body {
 }
 
 h1,
-h2 {
+h2,
+h3 {
     font-family: var(--font-display);
 }
 
-h1 {
+h1,
+h2 {
     text-align: center;
-    margin-top: 5%;
     color: var(--amber);
     font-size: 2.7rem;
     text-shadow: 3px 3px var(--red);
@@ -55,11 +57,11 @@ img {
 a {
     color: var(--amber);
     text-decoration: none;
-}
 
-a:hover {
-    color: var(--cream);
-    text-decoration: underline;
+    &:hover {
+        color: var(--cream);
+        text-decoration: underline;
+    }
 }
 
 /* ==== UTILITY CLASSES ==== */
@@ -70,32 +72,37 @@ a:hover {
 }
 
 .btn {
-    border: 3px solid var(--dark-brown);
+    border: var(--border);
     border-radius: 12px;
     background-color: var(--amber);
     color: var(--dark-brown);
-    box-shadow: 4px 4px var(--dark-brown);
+    box-shadow: var(--shadow);
     font-family: var(--font-ui);
     font-size: 0.75rem;
-    line-height: 1.4;
     text-align: center;
     cursor: pointer;
+    transition: 0.15s;
+    padding: 0.8rem;
+
+    &:hover {
+        background-color: var(--red);
+        color: var(--cream);
+    }
+
+    &:active {
+        transform: translate(4px, 4px);
+        box-shadow: none;
+    }
+}
+
+.box-hover {
+    box-shadow: var(--shadow);
     transition: 0.2s;
-}
 
-.btn:hover {
-    background-color: var(--red);
-    color: var(--cream);
-}
-
-.btn:active {
-    transform: translate(4px, 4px);
-    box-shadow: none;
-}
-
-.box-hover:hover {
-    box-shadow: 6px 6px var(--red);
-    transform: translate(-2px, -2px);
+    &:hover {
+        box-shadow: 6px 6px var(--red);
+        transform: translate(-2px, -2px);
+    }
 }
 
 /* ==== NAVBAR ==== */
@@ -108,58 +115,74 @@ nav {
     position: sticky;
     top: 0;
     z-index: 100;
+
+    a {
+        color: #fff;
+        padding: 1rem;
+        font-family: var(--font-ui);
+        font-size: 0.8rem;
+        text-align: center;
+        transition: 0.2s;
+
+        &:hover {
+            color: var(--amber);
+            text-decoration: none;
+        }
+    }
 }
 
 .nav-right {
     margin-left: auto;
 }
 
-nav a {
-    color: #fff;
-    padding: 1rem;
-    font-family: var(--font-ui);
-    font-size: 0.8rem;
-    text-align: center;
-    transition: 0.2s;
-}
-
-nav a:hover {
-    color: var(--amber);
-    text-decoration: none;
-}
-
 /* ==== FOOTER ==== */
 footer {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    margin-top: 5%;
+    margin-top: 5rem;
     border-top: var(--border);
     border-top-color: var(--red);
-}
 
-footer div {
-    background-color: var(--dark-brown);
-    color: var(--cream);
-    padding: 1rem;
-}
+    div {
+        background-color: var(--dark-brown);
+        color: var(--cream);
+        padding: 1rem;
+    }
 
-footer ul {
-    list-style-type: none;
-    padding: 0;
-}
+    ul {
+        list-style-type: none;
+        padding: 0;
+    }
 
-footer b {
-    font-family: var(--font-ui);
-    color: var(--amber);
+    b {
+        font-family: var(--font-ui);
+        color: var(--amber);
+    }
 }
 
 /* ==== LOGIN / SIGNUP ==== */
 .registration {
     height: 90vh;
-}
 
-.registration div {
-    width: 22vw;
+    div {
+        width: 22vw;
+    }
+
+    button {
+        width: 40%;
+        margin: 10px;
+        margin-left: auto;
+    }
+
+    h1 {
+        font-size: 1.75rem;
+        text-align: left;
+        margin: 0.6rem;
+    }
+
+    p {
+        text-align: center;
+    }
 }
 
 form {
@@ -167,28 +190,11 @@ form {
     flex-direction: column;
 }
 
-.registration button {
-    padding: 0.8rem;
-    width: 40%;
-    margin: 10px;
-    margin-left: auto;
-}
-
-.registration h1 {
-    font-size: 1.75rem;
-    text-align: left;
-    margin: 2%;
-}
-
-.registration p {
-    text-align: center;
-}
-
 input {
-    width: 100%;
+
     padding: 1rem;
     margin: 3px;
-    border: 3px solid var(--dark-brown);
+    border: var(--border);
     border-radius: 8px;
     background-color: var(--cream);
     color: var(--dark-brown);
@@ -200,19 +206,18 @@ input {
 .hero {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-}
 
-.hero div {
-    flex-direction: column;
-}
+    div {
+        flex-direction: column;
+    }
 
-.hero h1 {
-    margin-bottom: 0;
-}
+    h1 {
+        margin-bottom: 0;
+    }
 
-.hero a {
-    padding: 0.8rem;
-    text-decoration: none;
+    a {
+        text-decoration: none;
+    }
 }
 
 /* ---- HOW TO PLAY ---- */
@@ -230,24 +235,21 @@ input {
 .circle {
     background: var(--red);
     color: var(--cream);
-    width: 5vw;
-    height: 5vw;
+    width: 5rem;
+    height: 5rem;
     font-size: 2rem;
     border-radius: 100%;
     text-align: center;
-    border: 4px solid var(--amber);
+    border: var(--light-border);
     font-family: var(--font-display);
     box-shadow: 0 4px 0 var(--dark-brown);
 }
 
 .card {
-    margin: 5%;
+    margin: 2rem;
     background-color: var(--cream);
     color: var(--dark-brown);
     border: var(--border);
-    box-shadow: var(--shadow);
-    transition: 0.2s;
-    width: 80%;
 }
 
 .card-body {
@@ -260,29 +262,27 @@ input {
     grid-template-rows: repeat(3, auto);
     grid-template-columns: repeat(3, 1fr);
     gap: 20px;
-    padding: 0 5%;
+    padding: 0 3rem;
+
+    figure {
+        margin: 0;
+    }
+
+    img {
+        border: var(--light-border);
+    }
 }
 
-.img-grid figure {
-    margin: 0;
-}
-
-.img-grid img {
-    border: 4px solid var(--amber);
-    box-shadow: var(--shadow);
-    transition: 0.2s;
-}
-
-/* ---- MINI LEADERBOARD ---- */
+/* ---- LEADERBOARD ---- */
 table {
     margin: 0 auto;
-    border: 4px solid var(--amber);
+    border: var(--light-border);
     width: 75%;
 }
 
 th,
 td {
-    padding: 2%;
+    padding: 1rem;
 }
 
 th {
@@ -296,10 +296,12 @@ tr {
     background-color: var(--brown);
 }
 
-tbody tr:hover {
-    background-color: var(--dark-brown);
-}
+tbody {
+    tr:hover {
+        background-color: var(--dark-brown);
+    }
 
-tbody td {
-    color: var(--cream);
+    td {
+        color: var(--cream);
+    }
 }
