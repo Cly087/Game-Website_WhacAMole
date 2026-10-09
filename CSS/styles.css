@@ -10,9 +10,9 @@
     --green: #4caf50;
     --navy: #1b1b3a;
 
-    --font-display: "Bungee";
-    --font-ui: "Press Start 2P";
-    --font-body: "Nunito";
+    --font-display: "Bungee", sans-serif;
+    --font-ui: "Press Start 2P", monospace;
+    --font-body: "Nunito", sans-serif;
 
     --border: 4px solid var(--dark-brown);
     --shadow: 6px 6px var(--dark-brown);
@@ -54,11 +54,12 @@ img {
 
 a {
     color: var(--amber);
+    text-decoration: none;
 }
 
 a:hover {
     color: var(--cream);
-    text-decoration: none;
+    text-decoration: underline;
 }
 
 /* ==== UTILITY CLASSES ==== */
@@ -73,7 +74,7 @@ a:hover {
     border-radius: 12px;
     background-color: var(--amber);
     color: var(--dark-brown);
-    box-shadow: 4px 4px 0 var(--dark-brown);
+    box-shadow: 4px 4px var(--dark-brown);
     font-family: var(--font-ui);
     font-size: 0.75rem;
     line-height: 1.4;
@@ -92,9 +93,15 @@ a:hover {
     box-shadow: none;
 }
 
+.box-hover:hover {
+    box-shadow: 6px 6px var(--red);
+    transform: translate(-2px, -2px);
+}
+
 /* ==== NAVBAR ==== */
 nav {
     display: flex;
+    padding: 0.8rem;
     column-gap: 10px;
     background-color: var(--red);
     border-bottom: var(--border);
@@ -109,16 +116,16 @@ nav {
 
 nav a {
     color: #fff;
-    padding: 1.4%;
+    padding: 1rem;
     font-family: var(--font-ui);
-    font-size: 0.70rem;
+    font-size: 0.8rem;
     text-align: center;
-    text-decoration: none;
     transition: 0.2s;
 }
 
 nav a:hover {
     color: var(--amber);
+    text-decoration: none;
 }
 
 /* ==== FOOTER ==== */
@@ -133,7 +140,7 @@ footer {
 footer div {
     background-color: var(--dark-brown);
     color: var(--cream);
-    padding: 10px;
+    padding: 1rem;
 }
 
 footer ul {
@@ -161,17 +168,14 @@ form {
 }
 
 .registration button {
-    padding: 12px;
+    padding: 0.8rem;
     width: 40%;
     margin: 10px;
     margin-left: auto;
 }
 
-.registration .h2-style {
-    color: var(--amber);
+.registration h1 {
     font-size: 1.75rem;
-    font-family: var(--font-display);
-    text-shadow: 3px 3px var(--red);
     text-align: left;
     margin: 2%;
 }
@@ -182,7 +186,7 @@ form {
 
 input {
     width: 100%;
-    padding: 15px;
+    padding: 1rem;
     margin: 3px;
     border: 3px solid var(--dark-brown);
     border-radius: 8px;
@@ -198,11 +202,6 @@ input {
     grid-template-columns: repeat(2, 1fr);
 }
 
-.hero img,
-.hero div {
-    width: 50vw;
-}
-
 .hero div {
     flex-direction: column;
 }
@@ -212,12 +211,12 @@ input {
 }
 
 .hero a {
-    padding: 12px;
+    padding: 0.8rem;
     text-decoration: none;
 }
 
 /* ---- HOW TO PLAY ---- */
-.howToPlay {
+.how-to-play {
     scroll-margin-top: 70px;
 }
 
@@ -251,17 +250,12 @@ input {
     width: 80%;
 }
 
-.card:hover {
-    box-shadow: 6px 6px var(--red);
-    transform: translate(-2px, -2px);
-}
-
-.container {
-    padding: 2px 16px;
+.card-body {
+    padding: 0.4rem 1rem;
 }
 
 /* ---- PREVIEW ---- */
-.imgGrid {
+.img-grid {
     display: grid;
     grid-template-rows: repeat(3, auto);
     grid-template-columns: repeat(3, 1fr);
@@ -269,25 +263,19 @@ input {
     padding: 0 5%;
 }
 
-.imgGrid figure {
+.img-grid figure {
     margin: 0;
 }
 
-.imgGrid img {
+.img-grid img {
     border: 4px solid var(--amber);
     box-shadow: var(--shadow);
     transition: 0.2s;
 }
 
-.imgGrid img:hover {
-    box-shadow: 6px 6px var(--red);
-    transform: translate(-2px, -2px);
-}
-
 /* ---- MINI LEADERBOARD ---- */
 table {
     margin: 0 auto;
-    /* border-collapse: collapse; */
     border: 4px solid var(--amber);
     width: 75%;
 }
@@ -301,22 +289,17 @@ th {
     background-color: var(--red);
     color: var(--cream);
     font-family: var(--font-ui);
-    font-size: 0.7rem;
-    font-weight: normal;
+    font-size: 0.8rem;
 }
 
 tr {
     background-color: var(--brown);
 }
 
-tr:hover {
+tbody tr:hover {
     background-color: var(--dark-brown);
 }
 
-td {
+tbody td {
     color: var(--cream);
-}
-
-.top-rank td {
-    color: var(--amber);
 }
