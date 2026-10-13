@@ -1,5 +1,18 @@
 /* ==== GLOBAL ==== */
-@import url("https://fonts.googleapis.com/css2?family=Bungee&family=Nunito:wght@600;800&family=Press+Start+2P&display=swap");
+@font-face {
+    font-family: "Bungee";
+    src: url(/assets/fonts/Bungee-Regular.woff2);
+}
+
+@font-face {
+    font-family: "Press Start 2p";
+    src: url(/assets/fonts/PressStart2P-Regular.woff2);
+}
+
+@font-face {
+    font-family: "Nunito";
+    src: url(/assets/fonts/Nunito-VariableFont_wght.woff2);
+}
 
 :root {
     --red: #cd2132;
