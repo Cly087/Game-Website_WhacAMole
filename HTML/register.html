@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign Up - WAM!</title>
-    <link rel="stylesheet" href="../CSS/styles.css">
+    <link rel="stylesheet" href="../css/styles.css">
+    <script src="../js/main.js" defer></script>
 </head>
 
 <body>
@@ -25,13 +26,17 @@
     <main class="registration flex-center">
         <div>
             <h1>Register</h1>
-            <form>
+            <div class="form">
                 <input type="text" placeholder="Enter Name">
-                <input type="text" placeholder="Enter Username">
-                <input type="email" placeholder="Enter Email">
-                <input type="password" placeholder="Enter Password">
-                <button type="submit" class="btn">Sign Up</button>
-            </form>
+                <p id="name-error"></p>
+                <input type="text" id="username" placeholder="Enter Username">
+                <p id="username-error"></p>
+                <input type="email" id="email" placeholder="Enter Email">
+                <p id="email-error"></p>
+                <input type="password" id="password" placeholder="Enter Password">
+                <p id="pass-error"></p>
+                <button class="btn" onclick="register()">Sign Up</button>
+            </div>
 
             <p>Already have an account? <a href="login.html">Log In.</a></p>
         </div>

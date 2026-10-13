@@ -185,15 +185,19 @@ footer {
     }
 }
 
-form {
+.form {
     display: flex;
     flex-direction: column;
+
+    p {
+        margin: 0.1rem;
+        text-align: left;
+        color: var(--amber);
+    }
 }
 
 input {
-
     padding: 1rem;
-    margin: 3px;
     border: var(--border);
     border-radius: 8px;
     background-color: var(--cream);
@@ -242,7 +246,7 @@ input {
     text-align: center;
     border: var(--light-border);
     font-family: var(--font-display);
-    box-shadow: 0 4px 0 var(--dark-brown);
+    box-shadow: 0 4px var(--dark-brown);
 }
 
 .card {
@@ -273,11 +277,12 @@ input {
     }
 }
 
-/* ---- LEADERBOARD ---- */
+/* ==== LEADERBOARD ==== */
 table {
     margin: 0 auto;
     border: var(--light-border);
     width: 75%;
+    border-collapse: collapse;
 }
 
 th,
