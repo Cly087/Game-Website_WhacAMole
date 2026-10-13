@@ -164,7 +164,7 @@ footer {
 .registration {
     height: 90vh;
 
-    > div {
+    >div {
         width: 22vw;
     }
 
@@ -184,14 +184,15 @@ footer {
         text-align: center;
     }
 }
+
 .form-ui {
     display: grid;
     grid-template-rows: repeat(3, auto);
 }
 
 .form {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: auto auto;
 
     p {
         margin: 0.1rem;
