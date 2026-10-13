@@ -24,17 +24,22 @@
     </nav>
 
     <main class="registration flex-center">
-        <div>
+        <div class="form-ui">
             <h1>Register</h1>
             <div class="form">
-                <input type="text" placeholder="Enter Name">
-                <p id="name-error"></p>
-                <input type="text" id="username" placeholder="Enter Username">
-                <p id="username-error"></p>
-                <input type="email" id="email" placeholder="Enter Email">
-                <p id="email-error"></p>
-                <input type="password" id="password" placeholder="Enter Password">
-                <p id="pass-error"></p>
+                <div>
+                    <input type="text" placeholder="Enter Name">
+                    <p id="name-error"></p>
+                    <input type="text" id="username" placeholder="Enter Username">
+                    <p id="username-error"></p>
+                </div>
+
+                <div>
+                    <input type="email" id="email" placeholder="Enter Email">
+                    <p id="email-error"></p>
+                    <input type="password" id="password" placeholder="Enter Password">
+                    <p id="pass-error"></p>
+                </div>
                 <button class="btn" onclick="register()">Sign Up</button>
             </div>
 

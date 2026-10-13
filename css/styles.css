@@ -164,7 +164,7 @@ footer {
 .registration {
     height: 90vh;
 
-    div {
+    > div {
         width: 22vw;
     }
 
@@ -184,6 +184,10 @@ footer {
         text-align: center;
     }
 }
+.form-ui {
+    display: grid;
+    grid-template-rows: repeat(3, auto);
+}
 
 .form {
     display: flex;
@@ -202,6 +206,7 @@ input {
     border-radius: 8px;
     background-color: var(--cream);
     color: var(--dark-brown);
+    width: 100%;
 }
 
 /* ==== HOME PAGE ==== */
