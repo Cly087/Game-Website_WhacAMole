@@ -10,38 +10,39 @@
 </head>
 
 <body>
+    <!-- NAVIGATION BAR -->
     <nav>
         <div>
             <a href="index.html">Home</a>
             <a href="game.html">Play Game</a>
             <a href="leaderboard.html">Leaderboard</a>
         </div>
-
         <div class="nav-right">
             <a href="login.html">Log In</a>
             <a href="register.html">Sign Up</a>
         </div>
     </nav>
 
+    <!-- REGISTRATION -->
     <main class="registration flex-center">
         <div>
             <h1>Register</h1>
             <div class="form">
-                <input type="text" placeholder="Enter Name">
+                <input type="text" id="name" placeholder="Enter Name">
                 <p id="name-error"></p>
                 <input type="text" id="username" placeholder="Enter Username">
                 <p id="username-error"></p>
                 <input type="email" id="email" placeholder="Enter Email">
                 <p id="email-error"></p>
                 <input type="password" id="password" placeholder="Enter Password">
-                <p id="pass-error"></p>
+                <p id="password-error"></p>
                 <button class="btn" onclick="register()">Sign Up</button>
             </div>
-
             <p>Already have an account? <a href="login.html">Log In.</a></p>
         </div>
     </main>
 
+    <!-- FOOTER -->
     <footer>
         <div>
             <p><b>ACCOUNT</b></p>
@@ -50,7 +51,6 @@
                 <li><a href="register.html">Sign Up</a></li>
             </ul>
         </div>
-
         <div>
             <p><b>GAME</b></p>
             <ul>
@@ -59,7 +59,6 @@
                 <li><a href="index.html#how-to-play">How to Play</a></li>
             </ul>
         </div>
-
         <div>
             <p><b>COMPANY</b></p>
             <p>&copy; 2026 All rights reserved</p>
