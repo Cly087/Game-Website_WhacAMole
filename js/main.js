@@ -1,53 +1,117 @@
-// ==== REGISTRATION ====
-const nameRegex = /^\p{L}+(?:[ '’-]\p{L}+)*$/u;
-const usernameRegex = /^(?=.{3,20}$)[a-zA-Z0-9]+(?:[._-][a-zA-Z0-9]+)*$/;
-const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z0-9])[A-Za-z\d\W]{8,}$/;
+"use strict";
 
-function register() {
-    // Extract data from input fields
-    const name = document.querySelector("#name").value;
-    const username = document.querySelector("#username").value;
-    const email = document.querySelector("#email").value;
-    const password = document.querySelector("#password").value;
+/** 
+ * Validates user registration and stores them to localStorage.
+ */
+class UserRegistration {
+    REGEX = {
+        name: /^\p{L}+(?:[ '’-]\p{L}+)*$/u,
+        username: /^(?=.{3,20}$)[a-zA-Z0-9]+(?:[._-][a-zA-Z0-9]+)*$/,
+        email: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
+        password: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z0-9]).{8,}$/
+    };
 
-    // Reference to error IDs
-    const nameError = document.querySelector("#name-error");
-    nameError.innerHTML = "";
-    const usernameError = document.querySelector("#username-error");
-    usernameError.innerHTML = "";
-    const emailError = document.querySelector("#email-error");
-    emailError.innerHTML = "";
-    const passwordError = document.querySelector("#password-error");
-    passwordError.innerHTML = "";
+    constructor() {
+        this.inputs = {
+            name: document.getElementById("name"),
+            username: document.getElementById("username"),
+            email: document.getElementById("email"),
+            password: document.getElementById("password")
+        };
 
-    let isValid = true;
+        this.errors = {
+            name: document.getElementById("name-error"),
+            username: document.getElementById("username-error"),
+            email: document.getElementById("email-error"),
+            password: document.getElementById("password-error")
+        };
 
-    // Register Conditions
-    if (!nameRegex.test(name)) {
-        nameError.innerHTML = "<p>Letters, spaces, hyphens (-), and apostrophes (') only.</p>";
-        isValid = false;
-    }
-    
-    if (!usernameRegex.test(username)) {
-        usernameError.innerHTML = "<p>3-20 chars: Letters, numbers, periods (.), hyphens (-), and underscores (_) only.</p>";
-        isValid = false;
+        this.result = document.getElementById("result");
     }
 
-    if (!emailRegex.test(email)) {
-        emailError.innerHTML = "<p>Enter a valid email address.</p>";
-        isValid = false;
+    // Validate user then store if it passes all checks
+    validate() {
+        // Clear Errors
+        this.errors.name.innerHTML = "";
+        this.errors.username.innerHTML = "";
+        this.errors.email.innerHTML = "";
+        this.errors.password.innerHTML = "";
+
+        const data = this.getFormData();
+
+        // Form hecks
+        if (!this.validateFormats(data)) {
+            console.log("Format validation failed.");
+            return;
+        }
+
+        // User Uniqueness Checks
+        if (!this.isUnique(data.username, data.email)) {
+            console.log("Uniqueness validation failed.");
+            return;
+        }
+
+        // Store user
+        this.storeUser(data);
     }
 
-    if (!passwordRegex.test(password)) {
-        passwordError.innerHTML = "<p>Min. 8 chars: 1 uppercase, 1 lowercase, 1 digit, 1 special character.</p>";
-        isValid = false;
+    // Helper to get inputs value
+    getFormData() {
+        return {
+            name: this.inputs.name.value,
+            username: this.inputs.username.value,
+            email: this.inputs.email.value,
+            password: this.inputs.password.value
+        };
     }
 
-    if (!isValid) {
-        console.log("Conditions not met. Failed to register.");
-        return; // Stop execution if any validation fails
-    } else {
-        console.log("Successfully registered!");
+    // Helper for regex format rules
+    validateFormats(data) {
+        let isValid = true;
+
+        if (!this.REGEX.name.test(data.name)) {
+            this.errors.name.innerHTML = "<p>Letters, spaces, hyphens (-), and apostrophes (') only.</p>";
+            isValid = false;
+        }
+        if (!this.REGEX.username.test(data.username)) {
+            this.errors.username.innerHTML = "<p>3-20 chars: Letters, numbers, periods (.), hyphens (-), and underscores (_) only.</p>";
+            isValid = false;
+        }
+        if (!this.REGEX.email.test(data.email)) {
+            this.errors.email.innerHTML = "<p>Enter a valid email address.</p>";
+            isValid = false;
+        }
+        if (!this.REGEX.password.test(data.password)) {
+            this.errors.password.innerHTML = "<p>Min. 8 chars: 1 uppercase, 1 lowercase, 1 digit, 1 special character.</p>";
+            isValid = false;
+        }
+
+        return isValid;
+    }
+
+    // Helper to check if user already exists
+    isUnique(username, email) {
+        let isValid = true;
+        
+        if (localStorage.getItem(username)) {
+            this.errors.username.innerHTML = "<p>Username taken.</p>"
+            isValid = false;
+        }
+
+        if (localStorage.getItem(email)) {
+            this.errors.email.innerHTML = "<p>An account with this email address already exists.</p>";
+            isValid = false;
+        }
+
+        return isValid;
+    }
+
+    // Helper to writing to localStorage
+    storeUser(user) {
+        localStorage.setItem(user.email, JSON.stringify(user));
+        this.result.innerHTML = "<p>Registration successful!</p>";
+        console.log("Successfully stored user.");
     }
 }
+
+const register = new UserRegistration();

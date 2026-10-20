@@ -50,8 +50,8 @@ body {
     font-family: var(--font-body);
 }
 
-.how-to-play,
-.about {
+#how-to-play,
+#about {
     scroll-margin-top: 70px;
 }
 
@@ -247,27 +247,32 @@ input {
 }
 
 /* ---- ABOUT ---- */
-.about {
+#about {
     background-color: var(--amber);
     padding: 1.5rem;
     margin: 1rem 0;
-    color: var(--navy);
-    border-top: 4px solid var(--dark-brown);
-    border-bottom: 4px solid var(--dark-brown);
+    color: var(--dark-brown);
+    border-top: var(--border);
+    border-bottom: var(--border);
     display: grid;
     grid-template-columns: repeat(2, 1fr);
+    column-gap: 5rem;
 }
 
-.about-main h2 {
-    color: var(--red);
-    text-shadow: 3px 3px var(--navy);
-    margin: 0;
+.about-main {
+    margin-left: 15rem;
+
+    h2 {
+        margin: 0;
+        color: var(--dark-brown);
+    }
 }
 
 .about-meta {
     background: rgba(0, 0, 0, 0.05);
     padding: 1rem;
     border-radius: 6px;
+    margin-right: 15rem;
 
     h3 {
         margin: 0.2rem 0;
