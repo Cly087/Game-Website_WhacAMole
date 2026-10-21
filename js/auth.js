@@ -31,22 +31,23 @@ class UserRegistration {
 
     // Validate user then store if it passes all checks
     validate() {
-        // Clear Errors
+        // Clear Errors and Previous Result
         this.errors.name.innerHTML = "";
         this.errors.username.innerHTML = "";
         this.errors.email.innerHTML = "";
         this.errors.password.innerHTML = "";
+        this.result.innerHTML = "";
 
         const data = this.getFormData();
 
-        // Form hecks
+        // Form Checks
         if (!this.validateFormats(data)) {
             console.log("Format validation failed.");
             return;
         }
 
         // User Uniqueness Checks
-        if (!this.isUnique(data.username, data.email)) {
+        if (!this.isUnique(data.email)) {
             console.log("Uniqueness validation failed.");
             return;
         }
@@ -55,7 +56,7 @@ class UserRegistration {
         this.storeUser(data);
     }
 
-    // Helper to get inputs value
+    // Helper to get inputs values
     getFormData() {
         return {
             name: this.inputs.name.value,
@@ -90,20 +91,12 @@ class UserRegistration {
     }
 
     // Helper to check if user already exists
-    isUnique(username, email) {
-        let isValid = true;
-        
-        if (localStorage.getItem(username)) {
-            this.errors.username.innerHTML = "<p>Username taken.</p>"
-            isValid = false;
-        }
-
+    isUnique(email) {
         if (localStorage.getItem(email)) {
             this.errors.email.innerHTML = "<p>An account with this email address already exists.</p>";
-            isValid = false;
+            return false;
         }
-
-        return isValid;
+        return true;
     }
 
     // Helper to writing to localStorage
