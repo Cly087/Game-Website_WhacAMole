@@ -23,12 +23,20 @@
     </nav>
 
     <!-- LOGIN -->
-    <main class="registration flex-center">
+    <main class="auth flex-center">
         <div>
             <h1>Log In</h1>
             <div class="form">
-                <input type="email" placeholder="Enter Email">
-                <input type="password" placeholder="Enter Password">
+                <!-- Email -->
+                <label for="email">Email</label>
+                <input type="email" id="email" placeholder="Enter Email">
+                <p id="email-error"></p>
+
+                <!-- Password -->
+                <label for="password">Password</label>
+                <input type="password" id="password" placeholder="Enter Password">
+                <p id="password-error"></p>
+
                 <button class="btn">Log In</button>
             </div>
             <p>New here? <a href="register.html">Click to register.</a></p>
