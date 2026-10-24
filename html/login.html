@@ -37,9 +37,11 @@
                 <input type="password" id="password" placeholder="Enter Password">
                 <p id="password-error"></p>
 
-                <button class="btn">Log In</button>
+                <button class="btn" onclick="login()">Log In</button>
             </div>
             <p>New here? <a href="register.html">Click to register.</a></p>
+            <p id="login-error"></p>
+            <p id="result"></p>
         </div>
     </main>
 
@@ -69,6 +71,8 @@
             </ul>
         </div>
     </footer>
+
+    <script src="../js/auth.js"></script>
 </body>
 
 </html>

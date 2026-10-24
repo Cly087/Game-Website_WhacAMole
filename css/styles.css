@@ -221,7 +221,7 @@ footer {
         font-size: 0.8rem;
         margin: 0.1rem;
         text-align: left;
-        color: var(--amber);
+        color: #ff9900;
     }
 }
 
@@ -258,6 +258,7 @@ footer {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     column-gap: 5rem;
+    align-items: center;
 }
 
 .about-main {
@@ -356,4 +357,12 @@ tbody {
     td {
         color: var(--cream);
     }
+}
+
+/* ==== GAME ==== */
+canvas {
+    width: 960px;
+    image-rendering: pixelated;
+    display: block;
+    margin: 0 auto;
 }
