@@ -32,11 +32,11 @@ class UserRegistration {
     // Validate user then store if it passes all checks
     validate() {
         // Clear Errors and Previous Result
-        this.errors.name.innerHTML = "";
-        this.errors.username.innerHTML = "";
-        this.errors.email.innerHTML = "";
-        this.errors.password.innerHTML = "";
-        this.result.innerHTML = "";
+        this.errors.name.textContent = "";
+        this.errors.username.textContent = "";
+        this.errors.email.textContent = "";
+        this.errors.password.textContent = "";
+        this.result.textContent = "";
 
         const data = this.getFormData();
 
@@ -71,19 +71,19 @@ class UserRegistration {
         let isValid = true;
 
         if (!this.REGEX.name.test(data.name)) {
-            this.errors.name.innerHTML = "<p>Letters, spaces, hyphens (-), and apostrophes (') only.</p>";
+            this.errors.name.textContent = "Letters, spaces, hyphens (-), and apostrophes (') only.";
             isValid = false;
         }
         if (!this.REGEX.username.test(data.username)) {
-            this.errors.username.innerHTML = "<p>3-20 chars: Letters, numbers, periods (.), hyphens (-), and underscores (_) only.</p>";
+            this.errors.username.textContent = "3-20 chars: Letters, numbers, periods (.), hyphens (-), and underscores (_) only.";
             isValid = false;
         }
         if (!this.REGEX.email.test(data.email)) {
-            this.errors.email.innerHTML = "<p>Enter a valid email address.</p>";
+            this.errors.email.textContent = "Enter a valid email address.";
             isValid = false;
         }
         if (!this.REGEX.password.test(data.password)) {
-            this.errors.password.innerHTML = "<p>Min. 8 chars: 1 uppercase, 1 lowercase, 1 digit, 1 special character.</p>";
+            this.errors.password.textContent = "Min. 8 chars: 1 uppercase, 1 lowercase, 1 digit, 1 special character.";
             isValid = false;
         }
 
@@ -93,7 +93,7 @@ class UserRegistration {
     // Helper to check if user already exists
     isUnique(email) {
         if (localStorage.getItem(email)) {
-            this.errors.email.innerHTML = "<p>An account with this email address already exists.</p>";
+            this.errors.email.textContent = "An account with this email address already exists.";
             return false;
         }
         return true;
@@ -102,9 +102,108 @@ class UserRegistration {
     // Helper to writing to localStorage
     storeUser(user) {
         localStorage.setItem(user.email, JSON.stringify(user));
-        this.result.innerHTML = "<p>Registration successful!</p>";
+        this.result.textContent = "Registration successful!";
+
+        setTimeout(() => {
+            window.location.href = "login.html";
+        }, 1000);
+
         console.log("Successfully stored user.");
     }
 }
 
+window.onload = checkLogin;
+
+function checkLogin() {
+    const userEmail = sessionStorage.loggedInUsrEmail;
+
+    const loginH1 = document.getElementById("login-h1");
+
+    const loginBtn = document.getElementById("login-btn");
+    const registerBtn = document.getElementById("register-btn");
+    const logoutBtn = document.getElementById("logout-btn");
+
+    // Handle Logged-In State
+    if (userEmail) {
+        // Toggle buttons
+        if (loginBtn) loginBtn.style.display = "none";
+        if (registerBtn) registerBtn.style.display = "none";
+        if (logoutBtn) logoutBtn.style.display = "inline";
+
+    } else {
+        if (loginH1) loginH1.textContent = "Log In";
+        if (loginBtn) loginBtn.style.display = "inline";
+        if (registerBtn) registerBtn.style.display = "inline";
+        if (logoutBtn) logoutBtn.style.display = "none";
+    }
+}
+
+function logout() {
+    sessionStorage.clear();
+    window.location.href = "index.html";
+}
+
+function login() {
+    // Get values
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("password").value;
+
+    const emailError = document.getElementById("email-error");
+    const passError = document.getElementById("password-error");
+    const successElement = document.getElementById("result");
+
+    const loginH1 = document.getElementById("login-h1");
+    const form = document.querySelector(".form");
+    const paragraph = document.querySelector("div + p");
+    
+    // Clear previous feedback messages
+    emailError.textContent = "";
+    passError.textContent = "";
+    successElement.textContent = "";
+
+    // Check if email exists in localStorage
+    const storedUser = localStorage.getItem(email);
+
+    if (!storedUser) {
+        if (emailError) {
+            emailError.textContent = "Email not recognised. Do you have an account?";
+        }
+        return;
+    }
+
+    // Parse the stored user object
+    const usrObj = JSON.parse(storedUser);
+
+    // Verify password
+    if (password === usrObj.password) {
+        // Successful login
+        if (successElement) {
+            successElement.textContent = "Login successful! Redirecting...";
+        }
+
+        // Save session state
+        sessionStorage.loggedInUsrEmail = usrObj.email;
+
+        if (storedUser) {
+            const usrObj = JSON.parse(storedUser);
+            if (loginH1) loginH1.textContent = `Welcome, ${usrObj.name}!`;
+            
+            // Clear forms/paragraphs
+            if (form) form.innerHTML = "";
+            if (paragraph) paragraph.innerHTML = "";
+        }
+
+        // Automatically redirect to the game page after 1 second
+        setTimeout(() => {
+            window.location.href = "game.html";
+        }, 1000);
+
+    } else {
+        if (passError) {
+            passError.textContent = "Password not correct. Please try again.";
+        }
+    }
+}
+
+// Initialize the user registration and login functionality
 const register = new UserRegistration();
