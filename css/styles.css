@@ -1,4 +1,4 @@
-/* ==== GLOBAL ==== */
+/* ========== GLOBAL ========== */
 @font-face {
     font-family: "Bungee";
     src: url(../assets/fonts/Bungee-Regular.woff2);
@@ -83,7 +83,7 @@ a {
     }
 }
 
-/* ==== UTILITY CLASSES ==== */
+/* ========== UTILITY CLASSES ========== */
 .flex-center {
     display: flex;
     justify-content: center;
@@ -114,17 +114,7 @@ a {
     }
 }
 
-.box-hover {
-    box-shadow: var(--shadow);
-    transition: 0.2s;
-
-    &:hover {
-        box-shadow: 6px 6px var(--red);
-        transform: translate(-2px, -2px);
-    }
-}
-
-/* ==== NAVBAR ==== */
+/* ========== NAVBAR ========== */
 nav {
     display: flex;
     padding: 0.8rem;
@@ -150,11 +140,15 @@ nav {
     }
 }
 
-.nav-right {
+.nav-auth {
     margin-left: auto;
 }
 
-/* ==== FOOTER ==== */
+#logout-btn {
+    display: none;
+}
+
+/* ========== FOOTER ========== */
 footer {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -179,7 +173,7 @@ footer {
     }
 }
 
-/* ==== LOGIN / SIGNUP ==== */
+/* ========== LOGIN / SIGNUP ========== */
 .auth {
     height: 90vh;
 
@@ -225,9 +219,9 @@ footer {
     }
 }
 
-/* ==== HOME PAGE ==== */
+/* ========== HOME PAGE ========== */
 
-/* ---- HERO ---- */
+/* ---------- HERO ---------- */
 .hero {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -247,7 +241,7 @@ footer {
     }
 }
 
-/* ---- ABOUT ---- */
+/* ---------- ABOUT ---------- */
 #about {
     background-color: var(--amber);
     padding: 1.5rem;
@@ -292,7 +286,7 @@ footer {
     }
 }
 
-/* ---- HOW TO PLAY ---- */
+/* ---------- HOW TO PLAY ---------- */
 .cards {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -319,13 +313,20 @@ footer {
     color: var(--dark-brown);
     border: var(--border);
     height: 40rem;
+    box-shadow: var(--shadow);
+    transition: 0.2s;
+
+    &:hover {
+        box-shadow: 6px 6px var(--red);
+        transform: translate(-2px, -2px);
+    }
 }
 
 .card-body {
     padding: 0.4rem 1rem;
 }
 
-/* ==== LEADERBOARD ==== */
+/* ========== LEADERBOARD ========== */
 table {
     margin: 0 auto;
     border: var(--light-border);
@@ -336,11 +337,11 @@ table {
 th,
 td {
     padding: 1rem;
+    color: var(--cream);
 }
 
 th {
     background-color: var(--red);
-    color: var(--cream);
     font-family: var(--font-ui);
     font-size: 0.8rem;
 }
@@ -353,16 +354,16 @@ tbody {
     tr:hover {
         background-color: var(--dark-brown);
     }
-
-    td {
-        color: var(--cream);
-    }
 }
 
-/* ==== GAME ==== */
+/* ========== GAME ========== */
 canvas {
-    width: 960px;
+    width: 768px;
+    height: 576px;
     image-rendering: pixelated;
     display: block;
-    margin: 0 auto;
+    /* margin-top: 1rem; */
+    margin: auto auto;
+    border: 1px solid black;
+    background: var(--green);
 }
