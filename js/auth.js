@@ -56,7 +56,8 @@ class UserRegistration {
         this.storeUser(data);
     }
 
-    // Helper to get inputs values
+    // ---------- HELPERS ----------
+    // Get inputs values
     getFormData() {
         return {
             name: this.inputs.name.value,
@@ -66,7 +67,7 @@ class UserRegistration {
         };
     }
 
-    // Helper for regex format rules
+    // Regex format rules
     validateFormats(data) {
         let isValid = true;
 
@@ -90,7 +91,7 @@ class UserRegistration {
         return isValid;
     }
 
-    // Helper to check if user already exists
+    // Check if user already exists
     isUnique(email) {
         if (localStorage.getItem(email)) {
             this.errors.email.textContent = "An account with this email address already exists.";
@@ -99,7 +100,7 @@ class UserRegistration {
         return true;
     }
 
-    // Helper to writing to localStorage
+    // Write user to localStorage
     storeUser(user) {
         localStorage.setItem(user.email, JSON.stringify(user));
         this.result.textContent = "Registration successful!";
@@ -112,98 +113,153 @@ class UserRegistration {
     }
 }
 
-window.onload = checkLogin;
+/**
+ * Checks user inputs against localStorage to see if it exists and
+ * checks the associated password if it does.
+*/
+class UserLogin {
+    constructor() {
+        this.inputs = {
+            email: document.getElementById("email"),
+            password: document.getElementById("password")
+        };
 
-function checkLogin() {
-    const userEmail = sessionStorage.loggedInUsrEmail;
+        this.errors = {
+            email: document.getElementById("email-error"),
+            password: document.getElementById("password-error")
+        };
 
-    const loginH1 = document.getElementById("login-h1");
+        this.result = document.getElementById("result");
 
-    const loginBtn = document.getElementById("login-btn");
-    const registerBtn = document.getElementById("register-btn");
-    const logoutBtn = document.getElementById("logout-btn");
-
-    // Handle Logged-In State
-    if (userEmail) {
-        // Toggle buttons
-        if (loginBtn) loginBtn.style.display = "none";
-        if (registerBtn) registerBtn.style.display = "none";
-        if (logoutBtn) logoutBtn.style.display = "inline";
-
-    } else {
-        if (loginH1) loginH1.textContent = "Log In";
-        if (loginBtn) loginBtn.style.display = "inline";
-        if (registerBtn) registerBtn.style.display = "inline";
-        if (logoutBtn) logoutBtn.style.display = "none";
-    }
-}
-
-function logout() {
-    sessionStorage.clear();
-    window.location.href = "index.html";
-}
-
-function login() {
-    // Get values
-    const email = document.getElementById("email").value;
-    const password = document.getElementById("password").value;
-
-    const emailError = document.getElementById("email-error");
-    const passError = document.getElementById("password-error");
-    const successElement = document.getElementById("result");
-
-    const loginH1 = document.getElementById("login-h1");
-    const form = document.querySelector(".form");
-    const paragraph = document.querySelector("div + p");
-    
-    // Clear previous feedback messages
-    emailError.textContent = "";
-    passError.textContent = "";
-    successElement.textContent = "";
-
-    // Check if email exists in localStorage
-    const storedUser = localStorage.getItem(email);
-
-    if (!storedUser) {
-        if (emailError) {
-            emailError.textContent = "Email not recognised. Do you have an account?";
-        }
-        return;
+        // Elements changed on successful login
+        this.loginH1 = document.getElementById("login-h1");
+        this.form = document.querySelector(".form");
+        this.paragraph = document.querySelector("div + p");
     }
 
-    // Parse the stored user object
-    const usrObj = JSON.parse(storedUser);
+    // Validate credentials then start a session if they pass all checks
+    login() {
+        // Clear Errors and Previous Result
+        this.errors.email.textContent = "";
+        this.errors.password.textContent = "";
+        this.result.textContent = "";
 
-    // Verify password
-    if (password === usrObj.password) {
-        // Successful login
-        if (successElement) {
-            successElement.textContent = "Login successful! Redirecting...";
+        const data = this.getFormData();
+
+        // User Existence Check
+        const user = this.getUser(data.email);
+        if (!user) {
+            console.log("Login failed: user not found.");
+            return;
         }
 
-        // Save session state
-        sessionStorage.loggedInUsrEmail = usrObj.email;
-
-        if (storedUser) {
-            const usrObj = JSON.parse(storedUser);
-            if (loginH1) loginH1.textContent = `Welcome, ${usrObj.name}!`;
-            
-            // Clear forms/paragraphs
-            if (form) form.innerHTML = "";
-            if (paragraph) paragraph.innerHTML = "";
+        // Password Check
+        if (!this.verifyPassword(user, data.password)) {
+            console.log("Login failed: incorrect password.");
+            return;
         }
 
-        // Automatically redirect to the game page after 1 second
+        // Start session
+        this.startSession(user);
+    }
+
+    // ---------- HELPERS ----------
+    // Get inputs values
+    getFormData() {
+        return {
+            email: this.inputs.email.value,
+            password: this.inputs.password.value
+        };
+    }
+
+    // Fetch user from localStorage (returns null if not found)
+    getUser(email) {
+        const storedUser = localStorage.getItem(email);
+
+        if (!storedUser) {
+            this.errors.email.textContent = "Email not recognised. Do you have an account?";
+            return null;
+        }
+
+        return JSON.parse(storedUser);
+    }
+
+    // Check the entered password against the stored one
+    verifyPassword(user, password) {
+        if (password !== user.password) {
+            this.errors.password.textContent = "Password not correct. Please try again.";
+            return false;
+        }
+        return true;
+    }
+
+    // Save session state, update the page, then redirect
+    startSession(user) {
+        sessionStorage.setItem("loggedInUsrEmail", user.email);
+        this.result.textContent = "Login successful! Redirecting...";
+
+        this.showWelcome(user);
+
         setTimeout(() => {
             window.location.href = "game.html";
         }, 1000);
 
-    } else {
-        if (passError) {
-            passError.textContent = "Password not correct. Please try again.";
-        }
+        console.log("Successfully logged in user.");
+    }
+
+    // Replace the login form with a welcome message
+    showWelcome(user) {
+        if (this.loginH1) this.loginH1.textContent = `Welcome, ${user.name}!`;
+        if (this.form) this.form.innerHTML = "";
+        if (this.paragraph) this.paragraph.innerHTML = "";
     }
 }
 
-// Initialize the user registration and login functionality
+/**
+ * Checks whether there is an active user through sessionStorage.
+ */
+class AuthSession {
+    constructor() {
+        this.buttons = {
+            login: document.getElementById("login-btn"),
+            register: document.getElementById("register-btn"),
+            logout: document.getElementById("logout-btn")
+        };
+
+        this.userEmail = sessionStorage.loggedInUsrEmail;
+    }
+
+    // Show/hide nav buttons based on login state
+    checkLogin() {
+        // Handle Logged-In State
+        if (this.userEmail) {
+            // Toggle buttons
+            this.buttons.login.style.display = "none";
+            this.buttons.register.style.display = "none";
+            this.buttons.logout.style.display = "inline";
+
+        } else {
+            this.buttons.login.style.display = "inline";
+            this.buttons.register.style.display = "inline";
+            this.buttons.logout.style.display = "none";
+        }
+    }
+
+    // End the session and return to the home page
+    logout() {
+        sessionStorage.clear();
+        window.location.href = "index.html";
+    }
+}
+
+// Initialise the user registration and login functionality
 const register = new UserRegistration();
+
+let userLogin;
+let authSession;
+
+window.onload = () => {
+    userLogin = new UserLogin();
+    authSession = new AuthSession();
+    authSession.checkLogin();
+};
