@@ -216,7 +216,9 @@ class UserLogin {
 }
 
 /**
- * Checks whether there is an active user through sessionStorage.
+ * Checks whether there is an active user through sessionStorage
+ * and updates navbar according accordingly. Also has logout
+ * functionality.
  */
 class AuthSession {
     constructor() {
@@ -247,8 +249,8 @@ class AuthSession {
 
     // End the session and return to the home page
     logout() {
-        sessionStorage.clear();
         window.location.href = "index.html";
+        sessionStorage.clear();
     }
 }
 

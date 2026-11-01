@@ -124,6 +124,7 @@ nav {
     position: sticky;
     top: 0;
     z-index: 100;
+    align-items: center;
 
     a {
         color: #fff;
@@ -145,7 +146,8 @@ nav {
 }
 
 #logout-btn {
-    display: none;
+    padding: 0.12rem 1rem;
+    border-radius: 10px;
 }
 
 /* ========== FOOTER ========== */
@@ -346,13 +348,13 @@ th {
     font-size: 0.8rem;
 }
 
-tr {
-    background-color: var(--brown);
-}
-
 tbody {
-    tr:hover {
-        background-color: var(--dark-brown);
+    tr {
+        background-color: var(--brown);
+
+        &:hover {
+            background-color: var(--dark-brown);
+        }
     }
 }
 
