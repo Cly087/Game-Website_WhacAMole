@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Play Game - WAM!</title>
+    <title>WAM! - Play Game</title>
     <link rel="stylesheet" href="../css/styles.css">
 </head>
 
@@ -24,8 +24,19 @@
     </nav>
 
     <!-- GAME CANVAS -->
-    <main>
+    <main class="game">
+        <p id="score" class="flex-center">Score: <span id="scoreVal">0</span></p>
+        <p id="timer" class="flex-center">Time Left: <span id="timerVal">0</span></p>
         <canvas id="gameCanvas" width="256" height="192"></canvas>
+        
+        <!-- Game Over Modal Overlay -->
+        <div id="gameOverModal" class="flex-center">
+            <div class="modal-content">
+                <h2>Time's Up!</h2>
+                <p>Final Score: <strong id="finalScoreVal">0</strong></p>
+                <button id="restartBtn" class="btn">Play Again</button>
+            </div>
+        </div>
     </main>
 
     <!-- FOOTER -->
@@ -53,7 +64,7 @@
     </footer>
 
     <script src="../js/auth.js"></script>
-    <script type="module" src="../js/game.js"></script>
+    <script src="../js/game/main.js" type="module"></script>
 </body>
 
 </html>

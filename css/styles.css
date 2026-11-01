@@ -117,7 +117,7 @@ a {
 /* ========== NAVBAR ========== */
 nav {
     display: flex;
-    padding: 0.8rem;
+    padding: 1rem;
     column-gap: 10px;
     background-color: var(--red);
     border-bottom: var(--border);
@@ -148,6 +148,7 @@ nav {
 #logout-btn {
     padding: 0.12rem 1rem;
     border-radius: 10px;
+    margin: -6px 6px;
 }
 
 /* ========== FOOTER ========== */
@@ -359,13 +360,47 @@ tbody {
 }
 
 /* ========== GAME ========== */
+.game {
+    margin-top: 5rem;
+}
+
 canvas {
     width: 768px;
     height: 576px;
     image-rendering: pixelated;
     display: block;
-    /* margin-top: 1rem; */
-    margin: auto auto;
+    margin: auto;
     border: 1px solid black;
     background: var(--green);
+}
+
+#gameOverModal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(27, 27, 58, 0.80);
+    z-index: 50;
+}
+
+.modal-content {
+    background-color: var(--cream);
+    color: var(--dark-brown);
+    padding: 5rem;
+    border: var(--border);
+    box-shadow: var(--shadow);
+    text-align: center;
+    font-family: var(--font-ui);
+
+    p {
+        font-size: 11px;
+        color: var(--brown);
+        margin-bottom: 25px;
+    }
+
+    strong {
+        color: var(--green);
+    }
 }
