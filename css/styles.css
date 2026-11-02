@@ -235,6 +235,11 @@ footer {
         flex-direction: column;
     }
 
+    img {
+        box-shadow: var(--shadow);
+        border: var(--border);
+    }
+
     h1 {
         margin-bottom: 0;
     }
@@ -318,6 +323,7 @@ footer {
     height: 40rem;
     box-shadow: var(--shadow);
     transition: 0.2s;
+    width: 400px;
 
     &:hover {
         box-shadow: 6px 6px var(--red);
@@ -330,6 +336,10 @@ footer {
 }
 
 /* ========== LEADERBOARD ========== */
+.leaderboard {
+    height: 90vh;
+}
+
 table {
     margin: 0 auto;
     border: var(--light-border);
