@@ -26,9 +26,12 @@
     <!-- GAME CANVAS -->
     <main class="game">
         <div class="main-ui">
-            <p id="score" class="flex-center">Score: <span id="scoreVal">0</span></p>
-            <p id="timer" class="flex-center">Time Left: <span id="timerVal">0</span></p>
             <canvas id="gameCanvas" width="256" height="192"></canvas>
+            
+            <div class="hud">
+                <p id="score" class="flex-center">Score: <span id="scoreVal">0</span></p>
+                <p id="timer" class="flex-center">Time Left: <span id="timerVal">0</span></p>
+            </div>
         </div>
 
         <!-- Game Over Modal Overlay -->
