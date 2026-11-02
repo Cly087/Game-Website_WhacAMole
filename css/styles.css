@@ -323,11 +323,14 @@ footer {
     height: 40rem;
     box-shadow: var(--shadow);
     transition: 0.2s;
-    width: 400px;
 
     &:hover {
         box-shadow: 6px 6px var(--red);
         transform: translate(-2px, -2px);
+    }
+
+    @media screen and (min-width: 1800px) {
+        width: 400px;
     }
 }
 
