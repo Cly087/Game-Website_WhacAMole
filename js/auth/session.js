@@ -13,6 +13,11 @@ class AuthSession {
         };
 
         this.userEmail = sessionStorage.loggedInUsrEmail;
+        this.init();
+    }
+
+    init() {
+        this.buttons.logout.addEventListener("click", () => this.logout());
     }
 
     // Show/hide nav buttons based on login state
