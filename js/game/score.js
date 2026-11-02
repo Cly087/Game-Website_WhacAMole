@@ -5,16 +5,13 @@ export function getScore() {
     return score;
 }
 
+// Take and display updated score and floor at 0 if negative
 export function updateScore(points) {
     score = Math.max(0, score + points);
-    if (scoreValEl) {
-        scoreValEl.textContent = score;
-    }
+    scoreValEl.textContent = score;
 }
 
 export function resetScore() {
     score = 0;
-    if (scoreValEl) {
-        scoreValEl.textContent = score;
-    }
+    scoreValEl.textContent = score;
 }
