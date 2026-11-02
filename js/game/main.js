@@ -107,6 +107,7 @@ canvas.addEventListener("click", event => {
     if (clickedHole) {
         if (m && m.hole === clickedHole && (m.state === "up" || m.state === "idle")) {
             m.setState("hit");
+            m.frame = 4;
             updateScore(10);
         } else {
             updateScore(-5);

@@ -32,9 +32,7 @@ class UserRegistration {
 
     // When button pressed, run main logic
     init() {
-        this.submitBtn.addEventListener("click", () => {
-            this.validate();
-        });
+        this.submitBtn.addEventListener("click", () => this.validate());
     }
 
     // Validate user then store if it passes all checks

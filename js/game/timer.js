@@ -1,4 +1,4 @@
-let timeLeft = 5;
+let timeLeft = 10;
 let timerInterval = null;
 const timerValEl = document.getElementById("timerVal");
 

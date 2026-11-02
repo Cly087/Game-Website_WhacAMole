@@ -26,9 +26,7 @@ class UserLogin {
     }
     // Initialise event listeners
     init() {
-        this.submitBtn.addEventListener("click", () => {
-            this.login();
-        });
+        this.submitBtn.addEventListener("click", () => this.login());
     }
 
     // Validate credentials then start a session if they pass all checks
