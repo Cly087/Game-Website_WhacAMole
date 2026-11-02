@@ -5,9 +5,7 @@ const timerValEl = document.getElementById("timerVal");
 export function startTimer(onTimesUp) {
     timerInterval = setInterval(() => {
         timeLeft--;
-        if (timerValEl) {
-            timerValEl.textContent = timeLeft;
-        }
+        timerValEl.textContent = timeLeft;
 
         if (timeLeft <= 0) {
             clearInterval(timerInterval);
