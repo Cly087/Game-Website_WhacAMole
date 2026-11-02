@@ -377,6 +377,11 @@ tbody {
     margin-top: 5rem;
 }
 
+.main-ui {
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+}
+
 canvas {
     width: 768px;
     height: 576px;
