@@ -8,6 +8,8 @@ const timerValEl = document.getElementById("timerVal");
  * and executes a callback function when time reaches zero
  */
 export function startTimer(onTimesUp) {
+    timerValEl.textContent = timeLeft;
+
     timerInterval = setInterval(() => {
         timeLeft--;
         timerValEl.textContent = timeLeft;
@@ -15,7 +17,7 @@ export function startTimer(onTimesUp) {
         // Check if countdown reached zero
         if (timeLeft <= 0) {
             clearInterval(timerInterval);
-            
+
             // Execute callback if one was provided and is a valid function
             if (typeof onTimesUp === "function") {
                 onTimesUp();
