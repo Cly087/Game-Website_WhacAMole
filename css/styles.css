@@ -378,8 +378,27 @@ tbody {
 }
 
 .main-ui {
-    display: grid;
-    grid-template-columns: 3fr 1fr;
+    position: relative;
+    display: inline-block;
+}
+
+#gameCavas {
+    display: block;
+}
+
+.hud {
+    position: absolute;
+    top: 0;
+    font-family: var(--font-ui);
+    padding: 0 10rem;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    background: var(--amber);
+
+    p {
+        display: inline;
+    }
 }
 
 canvas {
@@ -388,7 +407,6 @@ canvas {
     image-rendering: pixelated;
     display: block;
     margin: auto;
-    border: 1px solid black;
     background: var(--green);
 }
 
