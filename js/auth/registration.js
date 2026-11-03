@@ -68,7 +68,8 @@ class UserRegistration {
             name: this.inputs.name.value,
             username: this.inputs.username.value,
             email: this.inputs.email.value,
-            password: this.inputs.password.value
+            password: this.inputs.password.value,
+            score: 0
         };
     }
 

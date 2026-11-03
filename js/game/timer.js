@@ -1,4 +1,4 @@
-let timeLeft = 10;
+let timeLeft = 5;
 let timerInterval = null; // Holds the interval reference so it can be cleared later
 const timerValEl = document.getElementById("timerVal");
 

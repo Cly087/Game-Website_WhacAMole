@@ -24,6 +24,7 @@ class UserLogin {
 
         this.init();
     }
+
     // Initialise event listeners
     init() {
         this.submitBtn.addEventListener("click", () => this.login());
