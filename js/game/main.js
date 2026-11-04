@@ -4,6 +4,7 @@ import { Hole } from "./hole.js";
 import { Mole } from "./mole.js";
 import { getScore, updateScore } from "./score.js";
 import { startTimer } from "./timer.js";
+import { recordHighScore } from "./leaderboard.js";
 
 // Disable image smoothing for crisp pixel-art rendering
 ctx.imageSmoothingEnabled = false;
@@ -30,7 +31,9 @@ restartBtn.addEventListener("click", () => {
 // Initialise timer; triggers game over when time expires
 startTimer(() => {
     gameActive = false;
-    showGameOverPopup(getScore());
+    const finalScore = getScore();
+    recordHighScore(finalScore);
+    showGameOverPopup(finalScore);
 });
 
 // Game loop tracking variables
@@ -45,8 +48,8 @@ function drawFrame(sheet, frame, centerX, centerY) {
 
     ctx.drawImage(
         sheet.img,
-        col * FRAME_SIZE, row * FRAME_SIZE, FRAME_SIZE, FRAME_SIZE,                        
-        centerX - FRAME_SIZE / 2, centerY - FRAME_SIZE / 2, FRAME_SIZE, FRAME_SIZE 
+        col * FRAME_SIZE, row * FRAME_SIZE, FRAME_SIZE, FRAME_SIZE,
+        centerX - FRAME_SIZE / 2, centerY - FRAME_SIZE / 2, FRAME_SIZE, FRAME_SIZE
     );
 }
 
@@ -122,7 +125,7 @@ canvas.addEventListener("click", event => {
     }
 
     const m = current;
-    
+
     if (clickedHole) {
         // If clicked hole has an active mole that can be hit, reward points
         if (m && m.hole === clickedHole && (m.state === "up" || m.state === "idle")) {
@@ -138,8 +141,8 @@ canvas.addEventListener("click", event => {
 
 // Wait for assets to load before setting up grid rows and starting the game loop
 SHEETS.hole.img.onload = () => {
-    Hole.addRow(3, 64, 90);     
-    Hole.addRow(4, 32, 144);    
+    Hole.addRow(3, 64, 90);
+    Hole.addRow(4, 32, 144);
 
     requestAnimationFrame(loop);
 };
