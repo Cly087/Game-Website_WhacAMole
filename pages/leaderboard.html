@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WAM! - Log In</title>
+    <title>WAM! - Leaderboard</title>
     <link rel="stylesheet" href="../css/styles.css">
 </head>
 
@@ -12,37 +12,31 @@
     <!-- NAVIGATION BAR -->
     <nav>
         <div>
-            <a href="index.html">Home</a>
+            <a href="../index.html">Home</a>
             <a href="game.html">Play Game</a>
             <a href="leaderboard.html">Leaderboard</a>
         </div>
         <div class="nav-auth">
             <a href="login.html" id="login-btn">Log In</a>
             <a href="register.html" id="register-btn">Sign Up</a>
+            <button id="logout-btn" class="btn">Log Out</button>
         </div>
     </nav>
 
-    <!-- LOGIN -->
-    <main class="auth flex-center">
-        <div>
-            <h1 id="login-h1">Log In</h1>
-            <div class="form">
-                <!-- Email -->
-                <label for="email">Email</label>
-                <input type="email" id="email">
-                <p id="email-error"></p>
-
-                <!-- Password -->
-                <label for="password">Password</label>
-                <input type="password" id="password">
-                <p id="password-error"></p>
-
-                <button class="btn" id="submit-btn">Log In</button>
-            </div>
-            <p>New here? <a href="register.html">Click to register.</a></p>
-            <p id="login-error"></p>
-            <p id="result"></p>
-        </div>
+    <!-- LEADERBOARD -->
+    <main class="leaderboard">
+        <h1>Leaderboard</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Rank</th>
+                    <th>Username</th>
+                    <th>Score</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
     </main>
 
     <!-- FOOTER -->
@@ -69,7 +63,8 @@
         </div>
     </footer>
 
-    <script src="../js/auth/login.js"></script>
+    <script src="../js/auth/session.js"></script>
+    <script src="../js/leaderboard-page.js" type="module"></script>
 </body>
 
 </html>

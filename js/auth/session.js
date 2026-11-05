@@ -39,7 +39,7 @@ class AuthSession {
 
     // End the session and return to the home page
     logout() {
-        window.location.href = "index.html";
+        window.location.href = "../index.html";
         sessionStorage.clear();
     }
 }

@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WAM! - Leaderboard</title>
+    <title>WAM! - Play Game</title>
     <link rel="stylesheet" href="../css/styles.css">
 </head>
 
@@ -12,7 +12,7 @@
     <!-- NAVIGATION BAR -->
     <nav>
         <div>
-            <a href="index.html">Home</a>
+            <a href="../index.html">Home</a>
             <a href="game.html">Play Game</a>
             <a href="leaderboard.html">Leaderboard</a>
         </div>
@@ -23,20 +23,25 @@
         </div>
     </nav>
 
-    <!-- LEADERBOARD -->
-    <main class="leaderboard">
-        <h1>Leaderboard</h1>
-        <table>
-            <thead>
-                <tr>
-                    <th>Rank</th>
-                    <th>Username</th>
-                    <th>Score</th>
-                </tr>
-            </thead>
-            <tbody>
-            </tbody>
-        </table>
+    <!-- GAME CANVAS -->
+    <main class="game flex-center">
+        <div class="main-ui">
+            <canvas id="gameCanvas" width="256" height="192"></canvas>
+            
+            <div class="hud">
+                <p id="score">Score:&nbsp;<span id="scoreVal">0</span></p>
+                <p id="timer">Time Left:&nbsp;<span id="timerVal">0</span></p>
+            </div>
+        </div>
+
+        <!-- Game Over Modal Overlay -->
+        <div id="gameOverModal" class="flex-center">
+            <div class="modal-content">
+                <h2>Time's Up!</h2>
+                <p>Final Score: <strong id="finalScoreVal">0</strong></p>
+                <button id="restartBtn" class="btn">Play Again</button>
+            </div>
+        </div>
     </main>
 
     <!-- FOOTER -->
@@ -64,7 +69,7 @@
     </footer>
 
     <script src="../js/auth/session.js"></script>
-    <script src="../js/leaderboard-page.js" type="module"></script>
+    <script src="../js/game/main.js" type="module"></script>
 </body>
 
 </html>
