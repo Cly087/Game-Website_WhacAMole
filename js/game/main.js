@@ -1,5 +1,5 @@
 import { canvas, ctx, FRAME_TIME, FRAME_SIZE } from "./constants.js";
-import { SHEETS } from "./assets.js";
+import { SHEETS, SOUNDS, playSound } from "./assets.js";
 import { Hole } from "./hole.js";
 import { Mole } from "./mole.js";
 import { getScore, updateScore } from "./score.js";
@@ -33,6 +33,7 @@ startTimer(() => {
     gameActive = false;
     const finalScore = getScore();
     recordHighScore(finalScore);
+    playSound(SOUNDS.roundClear);
     showGameOverPopup(finalScore);
 });
 
@@ -132,9 +133,11 @@ canvas.addEventListener("click", event => {
             m.setState("hit");
             m.frame = 4;
             updateScore(10);
+            playSound(SOUNDS.hit);
         } else {
             // Clicked an empty hole or missed the mole reduces the score
             updateScore(-5);
+            playSound(SOUNDS.miss);
         }
     }
 });

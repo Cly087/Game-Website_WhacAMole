@@ -15,3 +15,17 @@ export const SHEETS = {
     up: loadSprite("../assets/sprites/up.png", 5, 2),
     hit: loadSprite("../assets/sprites/hit.png", 8, 3)
 };
+
+export const SOUNDS = {
+    hit: new Audio("../assets/audio/hit_sound.mp3"),
+    miss: new Audio("../assets/audio/miss.mp3"),
+    roundClear: new Audio("../assets/audio/round_clear.mp3")
+};
+
+/**
+ * Play sound cleanly from the beginning even when triggered rapidly
+ */
+export function playSound(sound) {
+    sound.currentTime = 0;
+    sound.play()
+}
