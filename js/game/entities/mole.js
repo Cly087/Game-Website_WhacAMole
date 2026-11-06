@@ -1,8 +1,8 @@
-import { NEXT } from "./constants.js";
-import { SHEETS } from "./assets.js";
+import { NEXT } from "../core/constants.js";
+import { SHEETS } from "../managers/assets.js";
 
 /**
- * Represents the mole entity and manages its animation states.
+ * Represents the mole entity and manages its animation states
  */
 export class Mole {
     constructor(hole) {

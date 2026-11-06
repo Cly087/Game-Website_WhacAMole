@@ -1,5 +1,5 @@
-import { renderLeaderboardTable } from "./game/leaderboard.js";
+import { Leaderboard } from "./game/managers/leaderboard.js";
 
 window.addEventListener("load", () => {
-    renderLeaderboardTable("leaderboardBody");
+    Leaderboard.renderLeaderboardTable();
 });

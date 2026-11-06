@@ -1,8 +1,8 @@
-import { ctx } from "./constants.js";
-import { SHEETS } from "./assets.js";
+import { ctx } from "../core/constants.js";
+import { SHEETS } from "../managers/assets.js";
 
 /** 
- * Represents a hole on the grid where moles can appear.
+ * Represents a hole on the grid where moles can appear
  */
 export class Hole {
     static list = [];
@@ -14,7 +14,7 @@ export class Hole {
         this.y = y;
     }
 
-    // Draw hole centered at its coordinates
+    // Draw hole centred at its coordinates
     draw() {
         ctx.drawImage(
             SHEETS.hole.img,
@@ -27,9 +27,7 @@ export class Hole {
     static addRow(count, startX, y) {
         for (let i = 0; i < count; i++) {
             const newHole = new Hole(startX + i * Hole.spacing, y);
-
             Hole.list.push(newHole);
-
             newHole.draw();
         }
     }

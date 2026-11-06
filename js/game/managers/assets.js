@@ -8,7 +8,6 @@ function loadSprite(src, frames, cols) {
 }
 
 export const SHEETS = {
-    // bomb: loadSprite("../assets/sprites/bomb.png", 11, 3),
     down: loadSprite("../assets/sprites/down.png", 4, 2),
     hole: loadSprite("../assets/sprites/hole.png", 1, 1),
     idle: loadSprite("../assets/sprites/idle.png", 10, 3),
