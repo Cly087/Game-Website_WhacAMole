@@ -39,7 +39,6 @@ export class Leaderboard {
                 score: item.score
             });
         }
-
         users.sort((a, b) => b.score - a.score);
         return users.slice(0, 10);
     }
@@ -66,7 +65,6 @@ export class Leaderboard {
                 </tr>
             `;
         }
-
         tbody.innerHTML = html;
     }
 }

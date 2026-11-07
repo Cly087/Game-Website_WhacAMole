@@ -19,7 +19,7 @@ export class Game {
 
         // Create objects to access its methods
         this.scoreManager = new ScoreManager();
-        this.timer = new Timer(5, () => this.handleGameOver());
+        this.timer = new Timer(20, () => this.handleGameOver());
         this.renderer = new Renderer(ctx, canvas);
         this.inputHandler = new InputHandler(canvas, this);
 
@@ -42,13 +42,16 @@ export class Game {
         gameOverModal.style.display = "flex";
     }
 
-    // Wait for assets to load before setting up grid rows and starting the game loop
+    // Set up the grid and wait for 1 second before starting the game loop
     start() {
         SHEETS.hole.img.onload = () => {
             Hole.addRow(3, 64, 90);
             Hole.addRow(4, 32, 144);
-            this.timer.start();
-            requestAnimationFrame(now => this.loop(now));
+
+            setTimeout(() => {
+                this.timer.start();
+                requestAnimationFrame(now => this.loop(now));
+            }, 1000);
         };
     }
 

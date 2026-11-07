@@ -9,14 +9,12 @@ export class Mole {
         this.hole = hole;
         this.state = "empty";
         this.frame = 0;
-        this.idleLoops = 0;
     }
 
     // Change mole's current state and reset animation tracking variables
     setState(state) {
         this.state = state;
         this.frame = 0;
-        this.idleLoops = 0;
     }
 
     // Update animation frame tracking, loop idle states, or progress down the state chain.
@@ -26,7 +24,7 @@ export class Mole {
 
         if (this.state === "idle") {
             this.frame = 0;
-            if (++this.idleLoops >= 1) this.setState("down");
+            this.setState("down");
         } else {
             this.setState(NEXT[this.state]);
         }

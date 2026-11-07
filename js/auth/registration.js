@@ -108,10 +108,7 @@ class UserRegistration {
         localStorage.setItem(user.email, JSON.stringify(user));
         this.result.textContent = "Registration successful!";
 
-        setTimeout(() => {
-            window.location.href = "login.html";
-        }, 1000);
-
+        setTimeout(() => window.location.href = "login.html", 1000);
         console.log("Successfully stored user.");
     }
 }

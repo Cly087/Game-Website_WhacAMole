@@ -55,6 +55,13 @@ body {
     scroll-margin-top: 70px;
 }
 
+.auth,
+.hero,
+.leaderboard,
+.game {
+    height: 90vh;
+}
+
 h1,
 h2,
 h3 {
@@ -178,8 +185,6 @@ footer {
 
 /* ========== LOGIN / SIGNUP ========== */
 .auth {
-    height: 90vh;
-
     >div {
         width: 22vw;
     }
@@ -228,7 +233,6 @@ footer {
 .hero {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    height: 90vh;
     align-items: center;
 
     div {
@@ -339,10 +343,6 @@ footer {
 }
 
 /* ========== LEADERBOARD ========== */
-.leaderboard {
-    height: 90vh;
-}
-
 table {
     margin: 0 auto;
     border: var(--light-border);
@@ -373,10 +373,6 @@ tbody {
 }
 
 /* ========== GAME ========== */
-.game {
-    margin-top: 3rem;
-}
-
 .main-ui {
     position: relative;
     display: inline-block;
@@ -398,6 +394,7 @@ tbody {
 
     p {
         display: inline;
+        color: var(--dark-brown);
     }
 }
 
@@ -431,7 +428,7 @@ canvas {
     font-family: var(--font-ui);
 
     p {
-        font-size: 11px;
+        font-size: 0.8rem;
         color: var(--brown);
         margin-bottom: 25px;
     }

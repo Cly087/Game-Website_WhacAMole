@@ -2,7 +2,7 @@
  * Manages the countdown timer and UI updates
  */
 export class Timer {
-    constructor(duration = 10, onTimesUp) {
+    constructor(duration, onTimesUp) {
         this.timeLeft = duration;
         this.timerInterval = null;
         this.timerValEl = document.getElementById("timerVal");

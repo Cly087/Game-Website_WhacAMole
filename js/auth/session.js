@@ -46,7 +46,7 @@ class AuthSession {
 
 let authSession;
 
-window.addEventListener('load', () => {
+window.addEventListener("load", () => {
     authSession = new AuthSession();
     authSession.checkLogin();
 });

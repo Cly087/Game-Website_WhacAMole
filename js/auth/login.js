@@ -110,6 +110,4 @@ class UserLogin {
 
 let userLogin;
 
-window.addEventListener('load', () => {
-    userLogin = new UserLogin();
-});
+window.addEventListener("load", () => userLogin = new UserLogin());
