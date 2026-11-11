@@ -27,21 +27,19 @@
     <main class="game flex-center">
         <div class="main-ui">
             <canvas id="gameCanvas" width="256" height="192"></canvas>
-            
+
             <div class="hud">
-                <p id="score">Score:&nbsp;<span id="scoreVal">0</span></p>
-                <p id="timer">Time Left:&nbsp;<span id="timerVal">0</span></p>
+                <p>Score:&nbsp;<span id="scoreVal">0</span></p>
+                <p>Time Left:&nbsp;<span id="timerVal">0</span></p>
             </div>
         </div>
 
         <!-- Game Over Modal Overlay -->
-        <div id="gameOverModal" class="flex-center">
-            <div class="modal-content">
-                <h1>Time's Up!</h1>
-                <p>Final Score: <strong id="finalScoreVal">0</strong></p>
-                <button id="restartBtn" class="btn">Play Again</button>
-            </div>
-        </div>
+        <dialog id="gameOverModal" closedby="none">
+            <h1>Time's Up!</h1>
+            <p>Final Score: <strong id="finalScoreVal">0</strong></p>
+            <button id="restartBtn" class="btn">Play Again</button>
+        </dialog>
     </main>
 
     <!-- FOOTER -->

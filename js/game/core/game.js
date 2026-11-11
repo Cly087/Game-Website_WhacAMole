@@ -27,6 +27,19 @@ export class Game {
         this.last = 0; // Stores the timestamp of the last executed frame
     }
 
+    // Set up the grid and wait for 1 second before starting the game loop
+    start() {
+        SHEETS.hole.img.onload = () => {
+            Hole.addRow(3, 64, 90);
+            Hole.addRow(4, 32, 144);
+
+            setTimeout(() => {
+                this.timer.start();
+                requestAnimationFrame(now => this.loop(now));
+            }, 1000);
+        };
+    }
+
     handleGameOver() {
         this.gameActive = false;
         const finalScore = this.scoreManager.getScore();
@@ -39,20 +52,7 @@ export class Game {
 
         // Display game over popup with the final score
         finalScoreVal.textContent = finalScore;
-        gameOverModal.style.display = "flex";
-    }
-
-    // Set up the grid and wait for 1 second before starting the game loop
-    start() {
-        SHEETS.hole.img.onload = () => {
-            Hole.addRow(3, 64, 90);
-            Hole.addRow(4, 32, 144);
-
-            setTimeout(() => {
-                this.timer.start();
-                requestAnimationFrame(now => this.loop(now));
-            }, 1000);
-        };
+        gameOverModal.showModal();
     }
 
     // Update the game state (spawning moles, updating active mole states)
