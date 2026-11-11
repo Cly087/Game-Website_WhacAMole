@@ -55,6 +55,12 @@ body {
     scroll-margin-top: 70px;
 }
 
+#cta,
+#name,
+#email {
+    scroll-margin-top: 200px;
+}
+
 .auth,
 .hero,
 .leaderboard,
@@ -84,7 +90,8 @@ a {
     color: var(--amber);
     text-decoration: none;
 
-    &:hover {
+    &:hover,
+    &:focus {
         color: var(--cream);
         text-decoration: underline;
     }
@@ -110,7 +117,8 @@ a {
     transition: 0.15s;
     padding: 0.8rem;
 
-    &:hover {
+    &:hover,
+    &:focus {
         background-color: var(--red);
         color: var(--cream);
     }
@@ -122,6 +130,24 @@ a {
 }
 
 /* ========== NAVBAR ========== */
+.skip-link {
+    position: absolute;
+    padding: 0.85rem;
+    font-size: 1.25rem;
+    background-color: var(--amber);
+    color: white;
+    z-index: 100;
+
+    &:not(:focus) {
+        height: 1px;
+        width: 1px;
+        overflow: hidden;
+        white-space: nowrap;
+        clip: rect(0 0 0 0);
+        clip-path: inset(50%);
+    }
+}
+
 nav {
     display: flex;
     padding: 1rem;
@@ -130,7 +156,7 @@ nav {
     border-bottom: var(--border);
     position: sticky;
     top: 0;
-    z-index: 100;
+    z-index: 50;
     align-items: center;
 
     a {
@@ -328,7 +354,8 @@ footer {
     box-shadow: var(--shadow);
     transition: 0.2s;
 
-    &:hover {
+    &:hover,
+    &:focus {
         box-shadow: 6px 6px var(--red);
         transform: translate(-2px, -2px);
     }
@@ -408,13 +435,13 @@ canvas {
 }
 
 #gameOverModal {
-        background-color: var(--cream);
-        color: var(--dark-brown);
-        padding: 5rem;
-        border: var(--border);
-        box-shadow: var(--shadow);
-        text-align: center;
-        font-family: var(--font-ui);
+    background-color: var(--cream);
+    color: var(--dark-brown);
+    padding: 5rem;
+    border: var(--border);
+    box-shadow: var(--shadow);
+    text-align: center;
+    font-family: var(--font-ui);
 
     &::backdrop {
         background-color: rgba(27, 27, 58, 0.80);

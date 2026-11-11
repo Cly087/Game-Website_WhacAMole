@@ -10,18 +10,21 @@
 
 <body>
     <!-- NAVIGATION BAR -->
-    <nav>
-        <div>
-            <a href="../index.html">Home</a>
-            <a href="/pages/game.html">Play Game</a>
-            <a href="/pages/leaderboard.html">Leaderboard</a>
-        </div>
-        <div class="nav-auth">
-            <a href="/pages/login.html" id="login-btn">Log In</a>
-            <a href="/pages/register.html" id="register-btn">Sign Up</a>
-            <button id="logout-btn" class="btn">Log Out</button>
-        </div>
-    </nav>
+    <header>
+        <a href="#cta" class="skip-link">Skip to content</a>
+        <nav>
+            <div>
+                <a href="../index.html">Home</a>
+                <a href="/pages/game.html">Play Game</a>
+                <a href="/pages/leaderboard.html">Leaderboard</a>
+            </div>
+            <div class="nav-auth">
+                <a href="/pages/login.html" id="login-btn">Log In</a>
+                <a href="/pages/register.html" id="register-btn">Sign Up</a>
+                <button id="logout-btn" class="btn">Log Out</button>
+            </div>
+        </nav>
+    </header>
 
     <main>
         <!-- HERO -->
@@ -37,7 +40,7 @@
         <!-- ABOUT -->
         <section id="about">
             <div class="about-main">
-                <h2>About WAM!</h2>
+                <h2 tabindex="0">About WAM!</h2>
                 <p>
                     A fast-paced recreation of the classic arcade favourite, built with an explosive,
                     high-stakes bomb twist to test your reaction speeds under pressure.
@@ -63,7 +66,7 @@
                 <div class="circle flex-center">3</div>
 
                 <!-- Card #1 -->
-                <article class="card">
+                <article class="card" tabindex="0">
                     <img src="assets/images/hit.webp" alt="hit the mole">
                     <div class="card-body">
                         <h3>Hit the Moles!</h3>
@@ -76,7 +79,7 @@
                 </article>
 
                 <!-- Card #2 -->
-                <article class="card">
+                <article class="card" tabindex="0">
                     <img src="assets/images/bomb.webp" alt="mole with bomb">
                     <div class="card-body">
                         <h3>Avoid the Bombs!</h3>
@@ -90,7 +93,7 @@
                 </article>
 
                 <!-- Card #3 -->
-                <article class="card">
+                <article class="card" tabindex="0">
                     <img src="assets/images/down.webp" alt="mole going down hole">
                     <div class="card-body">
                         <h3>Watch Out for Strikes!</h3>

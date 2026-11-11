@@ -10,21 +10,25 @@
 
 <body>
     <!-- NAVIGATION BAR -->
-    <nav>
-        <div>
-            <a href="../index.html">Home</a>
-            <a href="game.html">Play Game</a>
-            <a href="leaderboard.html">Leaderboard</a>
-        </div>
-        <div class="nav-auth">
-            <a href="login.html" id="login-btn">Log In</a>
-            <a href="register.html" id="register-btn">Sign Up</a>
-            <button id="logout-btn" class="btn">Log Out</button>
-        </div>
-    </nav>
+    <header>
+        <a href="#pageTitle" class="skip-link">Skip to content</a>
+
+        <nav>
+            <div>
+                <a href="../index.html">Home</a>
+                <a href="/pages/game.html">Play Game</a>
+                <a href="/pages/leaderboard.html">Leaderboard</a>
+            </div>
+            <div class="nav-auth">
+                <a href="/pages/login.html" id="login-btn">Log In</a>
+                <a href="/pages/register.html" id="register-btn">Sign Up</a>
+                <button id="logout-btn" class="btn">Log Out</button>
+            </div>
+        </nav>
+    </header>
 
     <!-- LEADERBOARD -->
-    <main class="leaderboard">
+    <main id="pageTitle" class="leaderboard">
         <h1>Leaderboard</h1>
         <table>
             <thead>
