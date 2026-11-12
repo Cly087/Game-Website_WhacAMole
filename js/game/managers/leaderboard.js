@@ -58,7 +58,7 @@ export class Leaderboard {
         for (let i = 0; i < topUsers.length; i++) {
             const user = topUsers[i];
             html += `
-                <tr>
+                <tr tabindex="0">
                     <td>${i + 1}</td>
                     <td>${user.username}</td>
                     <td>${user.score}</td>

@@ -5,7 +5,7 @@
 }
 
 @font-face {
-    font-family: "Press Start 2p";
+    font-family: "Press Start 2P";
     src: url(../assets/fonts/PressStart2P-Regular.woff2);
 }
 
@@ -65,7 +65,7 @@ body {
 .hero,
 .leaderboard,
 .game {
-    height: 90vh;
+    min-height: 90vh;
 }
 
 h1,
@@ -130,20 +130,24 @@ a {
 }
 
 /* ========== NAVBAR ========== */
+header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
 .skip-link {
     position: absolute;
     padding: 0.85rem;
     font-size: 1.25rem;
-    background-color: var(--amber);
+    background-color: var(--brown);
     color: white;
-    z-index: 100;
 
-    &:not(:focus) {
+    &:not(:focus-visible) {
         height: 1px;
         width: 1px;
         overflow: hidden;
         white-space: nowrap;
-        clip: rect(0 0 0 0);
         clip-path: inset(50%);
     }
 }
@@ -154,13 +158,10 @@ nav {
     column-gap: 10px;
     background-color: var(--red);
     border-bottom: var(--border);
-    position: sticky;
-    top: 0;
-    z-index: 50;
     align-items: center;
 
     a {
-        color: #fff;
+        color: white;
         padding: 1rem;
         font-family: var(--font-ui);
         font-size: 0.8rem;
@@ -355,7 +356,7 @@ footer {
     transition: 0.2s;
 
     &:hover,
-    &:focus {
+    &:focus-visible {
         box-shadow: 6px 6px var(--red);
         transform: translate(-2px, -2px);
     }
@@ -403,10 +404,6 @@ tbody {
 .main-ui {
     position: relative;
     display: inline-block;
-}
-
-#gameCavas {
-    display: block;
 }
 
 .hud {
